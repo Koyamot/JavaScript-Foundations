@@ -57,7 +57,7 @@ function mortgageCalculator() {
     const denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
     let monthlyRate = (principal * numerator / denominator).toFixed(2);  
 
-    let message = name + ", your monthly interest rate is $" + monthlyRate + ".";
+    let message = name + ", with your monthly rate is $" + monthlyRate + ".";
     console.log(message); 
 }
 
@@ -78,7 +78,7 @@ function mortgageCalculator(principal, interestRate, years){
     const denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
     let monthlyRate = (principal * numerator / denominator).toFixed(2);
     
-    let message = name + ", your monthly interest rate is $" + monthlyRate + ".";
+    let message = name + ", your monthly rate is $" + monthlyRate + ".";
     console.log(message);
 }
 
@@ -106,11 +106,11 @@ function mortgageCalculator(principal, interestRate, years, creditScore){
     const denominator = Math.pow(1 + monthlyInterestRate, periods) - 1;
     let monthlyRate = (principal * numerator / denominator).toFixed(2);
     
-    let message = name + ", your monthly interest rate is $" + monthlyRate + ".";
+    let message = `${name}, with a credit score of ${creditScore}, your monthly rate is $${monthlyRate}.`;
     console.log(message);
 }
 
-mortgageCalculator(450000, 0.05, 30, 650);
+// mortgageCalculator(150000, 0.05, 25, 720);
 
 
 // 🏡 Task 6: Loops
@@ -129,7 +129,24 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+function variableInterestRate (principal, interestRate, years) {
 
+    interestRate = interestRate +- 0.02;
+    for (let i = 0; i < 9; i++) {
+
+    const numerator = (interestRate/12) * (Math.pow((1 + (interestRate/12)), (years*12)));
+    const denominator = (Math.pow((1 + (interestRate/12)), (years*12)))-1; 
+    let monthlyRate = (principal * (numerator/denominator)).toFixed(2);
+  
+    let message = ((name) + (", with an Interest Rate of ") + (interestRate.toFixed(3)) + (", your monthly rate is $") + (monthlyRate));
+  
+    console.log (message);
+    interestRate = interestRate + 0.005;
+    
+    }
+  }
+  
+  variableInterestRate(200000, 0.05, 30)
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
